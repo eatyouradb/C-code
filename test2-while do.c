@@ -3,12 +3,12 @@
 int main()
 {
 	int line = 0;
-	printf("学习C语言");
+	printf("Learning C language");
 	while (line<20000)
 	{
-		printf("每天敲代码\n");
+		printf("Code every day %d\n",line);
 		line++;
 	}
-	printf("好offer\n");
+	printf("Get a good offer\n");
 	return 0;
 }
