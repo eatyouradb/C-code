@@ -2,9 +2,14 @@
 #include <stdio.h>
 int main()
 {
-	char arr1[] = "abc";
-	char arr2[] = { 'a','b','c',0 };
-	printf("%s\n", arr1);
-	printf("%s\n", arr2);
+	int input = 0;
+	printf("你要好好学习吗? (好好学 1/天天躺平 0)>:");
+	scanf("%d", &input);
+	if(input == 1)
+		printf("成功上岸\n");
+	else
+	{
+		printf("天天搬砖\n");
+	}
 	return 0;
 }
