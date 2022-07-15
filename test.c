@@ -7,8 +7,10 @@ struct Book
 };
 int main()
 {
-	struct Book A = { "C语言",55 };
-	printf("书名=%s\n", A.name);
-	printf("价格=%d\n", A.price);
+	struct Book A = { "C Language",55 };
+	printf("Book Name=%s\n", A.name);
+	printf("Book Price=%d\n", A.price);
+	A.price=40;
+	printf("Discount Price=%d");
 	return 0;
 }
