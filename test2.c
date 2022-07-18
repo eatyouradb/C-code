@@ -2,11 +2,12 @@
 #include <stdio.h>
 int main()
 {
-	int num1 = 0;
-	int num2 = 0;
-	scanf("%d%d", &num1, &num2);
-	int sum = 0;
-	sum = num1 + num2;
-	printf("sum=%d\n", sum);
+	int i = 1;
+	while (i <= 100)
+	{
+		if (1 == i % 2)
+			printf("%d ", i);
+		i++;
+	} 
 	return 0;
 }
