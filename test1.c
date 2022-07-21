@@ -2,12 +2,20 @@
 #include <stdio.h>
 int main()
 {
-	int age = 55;
-	if (age < 18)
-		printf("Immaturity\n");
-	else if (age >= 18 && age < 28)
-		printf("Youth\n");
+	char password[20] = { 0 };
+	int ch = 0;
+	int ret = 0;
+	printf("Input password:>");
+	scanf("%s", password);
+	while ((ch = getchar()) != '\n')
+	{
+		;
+	}
+	printf("Please confirm(Y/N):>");
+	ret = getchar();
+	if ('Y' == ret)
+		printf("Confirmation successful\n");
 	else
-		printf("Adult\n");
+		printf("Confirmation failed\n");
 	return 0;
 }
