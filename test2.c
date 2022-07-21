@@ -2,12 +2,13 @@
 #include <stdio.h>
 int main()
 {
-	int i = 1;
-	while (i <= 100)
+	int ch = 0;
+	printf("Please enter a number from 0 to 9:>");
+	while ((ch = getchar())!= EOF )
 	{
-		if (1 == i % 2)
-			printf("%d ", i);
-		i++;
-	} 
+		if (ch < '0' || ch > '9')
+			continue;
+		putchar(ch);
+	}
 	return 0;
 }
