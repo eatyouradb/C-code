@@ -2,13 +2,19 @@
 #include <stdio.h>
 int main()
 {
-	int ch = 0;
-	printf("Please enter a number from 0 to 9:>");
-	while ((ch = getchar())!= EOF )
+	int i = 0;
+	int n = 0;
+	int ret = 1;
+	int sum = 0;
+	for (n = 1; n <= 3; n++)
 	{
-		if (ch < '0' || ch > '9')
-			continue;
-		putchar(ch);
+		for (i = 1; i <= n; i++)
+		{
+			ret = ret * n;
+		}//nµÄ½×³Ë
+		sum = ret + sum;//½×³ËÏà¼Ó
 	}
+	
+	printf("%d\n", sum);
 	return 0;
 }
