@@ -2,20 +2,15 @@
 #include <stdio.h>
 int main()
 {
-	char password[20] = { 0 };
-	int ch = 0;
-	int ret = 0;
-	printf("Input password:>");
-	scanf("%s", password);
-	while ((ch = getchar()) != '\n')
+	int i = 0;
+	int n = 0;
+	int ret = 1;
+	printf("Please enter a number:>");
+	scanf("%d", &n);
+	for (i = 1; i <= n; i++)
 	{
-		;
+		ret = ret * i;	
 	}
-	printf("Please confirm(Y/N):>");
-	ret = getchar();
-	if ('Y' == ret)
-		printf("Confirmation successful\n");
-	else
-		printf("Confirmation failed\n");
+	printf("Factorial = %d\n", ret);
 	return 0;
 }
