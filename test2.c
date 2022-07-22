@@ -8,11 +8,7 @@ int main()
 	int sum = 0;
 	for (n = 1; n <= 3; n++)
 	{
-		ret = 1;
-		for (i = 1; i <= n; i++)
-		{
-			ret = ret * i;
-		}
+		ret = ret * n;
 		sum = sum + ret;
 	}
 	printf("sum=%d\n", sum);
