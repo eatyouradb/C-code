@@ -1,16 +1,19 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
+#include <string.h>
 int main()
 {
-	int i = 0;
-	int n = 0;
-	int ret = 1;
-	int sum = 0;
-	for (n = 1; n <= 3; n++)
+	char arr1[] = { "I love c language\0" };
+	char arr2[] = { "#################" };
+	int left = 0;
+	int right = strlen(arr1)-1;
+	while (left <= right)
 	{
-		ret = ret * n;
-		sum = sum + ret;
+		arr2[left] = arr1[left];
+		arr2[right] = arr1[right];
+		printf("%s\n", arr2);
+		left++;
+		right--;
 	}
-	printf("sum=%d\n", sum);
 	return 0;
 }
