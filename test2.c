@@ -15,10 +15,12 @@ int main()
 		arr2[left] = arr1[left];
 		arr2[right] = arr1[right];
 		printf("%s\n", arr2);
-		Sleep(1000);
-		system("cls");
+		Sleep(1000);//休息1000毫秒=1s
+		system("cls");//清空屏幕
 		left++;
 		right--;
 	}
+	printf("%s\n", arr2);
 	return 0;
+
 }
