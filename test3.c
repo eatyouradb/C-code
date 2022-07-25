@@ -13,4 +13,5 @@ int main()
 	}
 	printf("The greatest common divisor is: %d\n",m);
 	return 0;
+	
 }
