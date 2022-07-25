@@ -6,9 +6,8 @@ int main()
 	int m = 0;
 	int r = 0;
 	scanf("%d%d", &n, &m);
-	while ( n % m )
+	while ( r = n % m )
 	{
-		r = n % m;
 		n = m;
 		m = r;
 	}
