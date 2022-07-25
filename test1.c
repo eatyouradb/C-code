@@ -2,33 +2,28 @@
 #include <stdio.h>
 int main()
 {
-	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	int left = 0;
-	int right = sz-1;
-	int k = 0;
-	printf("Please enter the value you want to find:>");
-	scanf("%d", &k);
-	while (left <= right)
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	scanf("%d%d%d", &a, &b, &c);
+	if (a < b)
 	{
-		int mid = (left + right) / 2;
-		if (arr[mid] < k)
-		{
-			left = mid + 1;
-		}
-		else if (arr[mid] > k)
-		{
-			right = mid - 1;
-		}
-		else
-		{
-			printf("The position of this value is in %d\n", mid);
-			break;
-		}
+		int tmp = a;
+		a = b;
+		b = tmp;
 	}
-	if (left > right)
+	if (a < c)
 	{
-		printf("The value cannot be found\n");
+		int tmp = a;
+		a = c;
+		c = tmp;
 	}
+	if (b < c)
+	{
+		int tmp = b;
+		b = c;
+		c = tmp;
+	}
+	printf("%d %d %d\n", a, b, c);
 	return 0;
 }
