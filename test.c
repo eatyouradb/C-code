@@ -13,4 +13,5 @@ int main()
 	A.price=40;
 	printf("Discount Price=%d");
 	return 0;
+	
 }
