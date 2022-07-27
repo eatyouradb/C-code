@@ -3,11 +3,11 @@
 
 int main()
 {
-	char arr[] = { 1,2,4,3,5,11,7,8,9,10 };
+	char arr[] = { -1,-2,-4,-3,-5,-11,-7,-8,-9,-10 };
 	int i = 0;
-	int max = 0;
+	int max = arr[0];
 	int sz = sizeof(arr) / sizeof(arr[0]);
-	for (i = 0; i <= sz; i++)
+	for (i = 1; i <= sz; i++)
 	{
 		if (arr[i] > max)
 		{
