@@ -3,12 +3,13 @@
 int main()
 {
 	int i = 0;
-	for (i = 1; i < 100; i++)
+	double sum = 0.0;
+	int flag = 1;
+	for (i = 1; i <= 100; i++)
 	{
-		if (0 == i % 3)
-		{
-			printf("%d ", i);
-		}
+		sum += flag*1.0 / i;
+		flag = -flag;
 	}
+	printf("%lf\n", sum);
 	return 0;
 }
