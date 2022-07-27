@@ -3,16 +3,19 @@
 int main()
 {
 	int i = 0;
+	int count = 0;
 	for (i = 1; i <= 100; i++)
 	{
 		if (9 == i % 10)
 		{
-			printf("%d ", i);//��λΪ9
+			count++;//个位为9
 		}
-		else if (9 == i / 10)
+		if (9 == i / 10)
 		{
-			printf("%d ", i);//ʮλΪ9
+			count++;//十位为9
 		}
+		
 	}
+	printf("count=%d\n", count);
 	return 0;
 }
