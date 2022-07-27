@@ -2,28 +2,17 @@
 #include <stdio.h>
 int main()
 {
-	int a = 0;
-	int b = 0;
-	int c = 0;
-	scanf("%d%d%d", &a, &b, &c);
-	if (a < b)
+	int i = 0;
+	for (i = 1; i <= 100; i++)
 	{
-		int tmp = a;
-		a = b;
-		b = tmp;
+		if (9 == i % 10)
+		{
+			printf("%d ", i);//个位为9
+		}
+		else if (9 == i / 10)
+		{
+			printf("%d ", i);//十位为9
+		}
 	}
-	if (a < c)
-	{
-		int tmp = a;
-		a = c;
-		c = tmp;
-	}
-	if (b < c)
-	{
-		int tmp = b;
-		b = c;
-		c = tmp;
-	}
-	printf("%d %d %d\n", a, b, c);
 	return 0;
 }
