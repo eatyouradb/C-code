@@ -1,21 +1,66 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int main()
+#include <stdlib.h>
+#include <time.h>
+
+void game()
 {
-	int i = 0;
+	int ran = 0;
+	int guess = 0;
 	int count = 0;
-	for (i = 1; i <= 100; i++)
+	ran = rand()%100+1;
+	
+	while (1)
 	{
-		if (9 == i % 10)
+		printf("Please guess>:");
+		scanf("%d", &guess);
+		if (guess < ran)
 		{
-			count++;//个位为9
+			printf("small\n");
+			count++;
 		}
-		if (9 == i / 10)
+		else if (guess > ran)
 		{
-			count++;//十位为9
+			printf("big\n");
+			count++;
+		}
+		else
+		{
+			printf("You guessed right\n");
+			break;
 		}
 		
 	}
-	printf("count=%d\n", count);
+	printf("Guess times=%d\n", count);/*printf("%d\n",ran);*/
+}
+void title()
+{
+	printf("********************************************\n");
+	printf("***  1 continue   *******   0  exit   ******\n");
+	printf("********************************************\n");
+}
+int main()
+{
+	srand((unsigned int)time(NULL));
+	int input = 0;
+	do
+	{
+		title();
+		printf("Please enter>:");
+		scanf("%d", &input);
+		switch(input)
+		{
+		case 0:
+			printf("game over\n");
+			break;
+		case 1:
+			game();
+			break;
+		default:
+			printf("Input error\n");
+			break;
+		}
+	} 
+	while (input);
 	return 0;
 }
