@@ -1,19 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-void Add(int* p)
+void print(int n)
 {
-	(*p)++;
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("%d ", n % 10);
 }
 int main()
 {
-	int num = 0;
-	Add(&num);
-	printf("num=%d\n", num);
-	Add(&num);
-	printf("num=%d\n", num);
-	Add(&num);
-	printf("num=%d\n", num);
-	Add(&num);
-	printf("num=%d\n", num);
+	unsigned int num = 0;
+	scanf("%d", &num);
+	print(num);
 	return 0;
 }
