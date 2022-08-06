@@ -1,45 +1,34 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int binary_search(int arr[],int k,int sz)
+//int Fib(int n)
+//{
+//	if (n <= 2)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return Fib(n - 2) + Fib(n - 1);
+//	}
+//}效率低
+int Fib(int x)
 {
-	int left = 0;
-	/*int sz = sizeof(arr) / sizeof(arr[0]);*/
-	//sizeof(arr)传递的是arr的首元素的下标，sizeof(arr)==4
-	int right = sz-1;
-	while (left <= right)
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (x > 2)
 	{
-		int mid = (left + right) / 2;
-		if (arr[mid] < k)
-		{
-			left = mid + 1;
-			
-		}
-		else if (arr[mid] > k)
-		{
-			right = mid - 1;
-		}
-		else
-		{
-			return mid;
-		}
+		c = a + b;
+		a = b;
+		b = c;
+		x--;
 	}
-	return -1;
+	return c;
 }
 int main()
 {
-	int arr[] = { 1,2,3,5,8,9,12,13};
-	int k = 0;
-	printf("Please enter a number>:");
-	scanf("%d", &k);
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	int ret = binary_search(arr, k, sz);
-	if (-1 == ret)
-	{
-		printf("The number is not in the array\n");
-	}
-	else
-	{
-		printf("The number is in the array,Subscript is=%d\n",ret);
-	}
+	int n = 0;
+	scanf("%d", &n);
+	printf("%d", Fib(n));
 	return 0;
 }
