@@ -1,21 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-
-int length(char* arr)
-{
-	if (*arr != '\0')
-	{
-		return 1 + length(arr + 1);
-	}
-	else
-	{
-		return 0;
-	}
-}
 int main()
 {
-	char arr[] = "bit";
-	int le = length(arr);
-	printf("%d\n", le);
+	int arr[3][4] = { {1,2,3},{7,8} };
+	int i = 0;
+	for (i = 0; i < 3; i++)
+	{
+		int j = 0;
+		for (j = 0; j < 4; j++)
+		{
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
+	}
 	return 0;
 }
