@@ -2,16 +2,27 @@
 #include <stdio.h>
 int main()
 {
-	int arr[3][4] = { {1,2,3},{7,8} };
+	int num = 0;
+	int count = 0;
 	int i = 0;
-	for (i = 0; i < 3; i++)
+	printf("please input a number;>");
+	scanf("%d", &num);
+	for (i = 0; i < 32; i++)
 	{
-		int j = 0;
-		for (j = 0; j < 4; j++)
+		if (1 == ((num >> i) & 1))
 		{
-			printf("%d ", arr[i][j]);
+			count++;
 		}
-		printf("\n");
 	}
+	/*while (num)
+	{
+		if (1 == num % 2)
+		{
+			count++;
+		}
+		num = num / 2;
+	}*/
+	//负数无法计算
+	printf("%d\n", count);
 	return 0;
 }
