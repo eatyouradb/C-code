@@ -1,18 +1,18 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int count_bit_one(unsigned int a)//负数换成无符号数
-{
-	int i = 0;
-	while (a)
-	{
-		if (1 == a % 2)
-		{
-			i++;
-		}
-		a = a / 2;
-	}
-	return i;
-}
+//int count_bit_one(unsigned int a)//负数换成无符号数
+//{
+//	int i = 0;
+//	while (a)
+//	{
+//		if (1 == a % 2)
+//		{
+//			i++;
+//		}
+//		a = a / 2;
+//	}
+//	return i;
+//}
 //int count_bit_one(int a)
 //{
 //	int i = 0;
@@ -26,6 +26,16 @@ int count_bit_one(unsigned int a)//负数换成无符号数
 //	}
 //	return count;
 //}
+int count_bit_one(int a)
+{
+	int count = 0;
+	while (a)
+	{
+		a = a & (a - 1);
+		count++;
+	}
+	return count;
+}
 int main()
 {
 	int a = 0;
