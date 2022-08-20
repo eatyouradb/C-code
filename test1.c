@@ -1,43 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-void Init(int arr[], int sz)
+int count_bit_one(int a)
 {
 	int i = 0;
-	for (i = 0; i < sz; i++)
+	while (a)
 	{
-		arr[i] = 0;
+		if (1 == a % 2)
+		{
+			i++;
+		}
+		a = a / 2;
 	}
-}
-void Print(int arr[], int sz)
-{
-	int i = 0;
-	for (i = 0; i < sz; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
-void Reverse(int arr[], int sz)
-{
-	int left = 0;
-	int right = sz - 1;
-	while (left < right)
-	{
-		int tmp = 0;
-		tmp = arr[left];
-		arr[left] = arr[right];
-		arr[right] = tmp;
-		left++;
-		right--;
-	}
+	return i;
 }
 int main()
 {
-	int arr[] = { 0,1,2,3,4,5 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	/*Init(arr, sz);*/
-	Print(arr, sz);
-	Reverse(arr, sz);
-	Print(arr, sz);
+	int a = 0;
+	scanf("%d", &a);
+	int count = count_bit_one(a);
+	printf("%d", count);
 	return 0;
 }
