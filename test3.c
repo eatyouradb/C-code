@@ -1,24 +1,22 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int Fac(int x)
+print(int n)
 {
-	if (x <= 1)
+	int i = 0;
+	for (i = 30; i >= 0; i -= 2)//奇数位
 	{
-		return 1;
+		printf("%d ", (n >> i) & 1);
 	}
-	else
+	printf("\n");
+	for (i = 31; i >= 0; i -= 2)//偶数位
 	{
-		/*for (i = 1; i <= x; i++)
-		{
-			ret *= i;
-		}*/
-		return x * Fac(x - 1);
+		printf("%d ", (n >> i) & 1);
 	}
 }
 int main()
 {
 	int n = 0;
 	scanf("%d", &n);
-	int f = Fac(n);
-	printf("%d\n", f);
+	print(n);
+	return 0;
 }
