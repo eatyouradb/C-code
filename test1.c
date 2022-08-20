@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int count_bit_one(int a)
+int count_bit_one(unsigned int a)//负数换成无符号数
 {
 	int i = 0;
 	while (a)
