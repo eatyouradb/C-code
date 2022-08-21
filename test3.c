@@ -1,22 +1,20 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-print(int n)
+int calculate(unsigned int n)
 {
-	int i = 0;
-	for (i = 30; i >= 0; i -= 2)//奇数位
+	if (n>9)
 	{
-		printf("%d ", (n >> i) & 1);
+		return calculate(n / 10) + n % 10;
 	}
-	printf("\n");
-	for (i = 31; i >= 0; i -= 2)//偶数位
+	else
 	{
-		printf("%d ", (n >> i) & 1);
+		return n;
 	}
 }
 int main()
 {
-	int n = 0;
+	unsigned int n = 0;
 	scanf("%d", &n);
-	print(n);
+	printf("%d", calculate(n));
 	return 0;
 }
