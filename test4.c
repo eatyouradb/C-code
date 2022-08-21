@@ -1,34 +1,26 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-//int Fib(int n)
-//{
-//	if (n <= 2)
-//	{
-//		return 1;
-//	}
-//	else
-//	{
-//		return Fib(n - 2) + Fib(n - 1);
-//	}
-//}Ð§ÂÊµÍ
-int Fib(int x)
+double power(int x, int y)
 {
-	int a = 1;
-	int b = 1;
-	int c = 1;
-	while (x > 2)
+	if (y>0)
 	{
-		c = a + b;
-		a = b;
-		b = c;
-		x--;
+		return x * power(x, y - 1);
 	}
-	return c;
+	else if(0==y)
+	{
+		return 1;
+	}
+	else
+	{
+		return 1.0 / power(x, -y);
+	}
 }
 int main()
 {
 	int n = 0;
-	scanf("%d", &n);
-	printf("%d", Fib(n));
+	int k = 0;
+	scanf("%d%d", &n, &k);
+	double m = power(n, k);
+	printf("%lf\n", m);
 	return 0;
 }
