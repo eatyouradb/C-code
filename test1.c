@@ -25,6 +25,7 @@ char* my_strcpy(char* dest, const char* src)//源头数据*src不能被改变//�
 	int* ret = dest;
 	assert(dest != NULL);//断言，优化
 	assert(src != NULL);
+	//把src指向的字符串拷贝到dest指向的空间，包含'\0'
 	while (*dest++ = *src++)//优化
 	{
 		;
