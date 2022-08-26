@@ -1,21 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-#include <assert.h>
-int my_strlen(const char* arr)
-{
-	int count = 0;
-	assert(arr != NULL);
-	while (*arr != '\0')
-	{
-		count++;
-		arr++;
-	}
-	return count;
-}
 int main()
 {
-	char arr[] = "abcde";
-	int len = my_strlen(arr);
-	printf("%d\n", len);
+	char a = -128;
+	//原码10000000000000000000000010000000
+	//反码11111111111111111111111101111111
+	//补码11111111111111111111111110000000
+	//截断10000000
+	printf("%u\n", a);//打印无符号十进制
+	//整型提升（补码）11111111111111111111111110000000
+	// 无符号直接打印
+	// 有符号操作
+	//反码11111111111111111111111101111111
+	//源码10000000000000000000000010000000
 	return 0;
 }
