@@ -1,41 +1,42 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-#include <assert.h>
-//void my_strcpy(char* dest, char* src)
+//int check_syt()
 //{
-//	while (*src!=0)
+//	int a = 1;
+//	char* p = (char*)&a;
+//	if (1 == *p)
 //	{
-//		*dest = *src;
-//		src++;
-//		dest++;
+//		return 1;
 //	}
-//	*dest = *src;//'\0'
-//}
-// 
-//void my_strcpy(char* dest, char* src)
-//{
-//	while (*dest++ = *src++)
+//	else
 //	{
-//		;
+//		return 0;
 //	}
 //}
-
-char* my_strcpy(char* dest, const char* src)//æºå¤´æ•°æ®*srcä¸èƒ½è¢«æ”¹å˜//è¿”å›å€¼ä¼˜åŒ–
+//int check_syt()
+//{
+//	int a = 1;
+//	char* p = (char*)&a;
+//	return *p;
+//}
+int check_syt()
 {
-	int* ret = dest;
-	assert(dest != NULL);//æ–­è¨€ï¼Œä¼˜åŒ–
-	assert(src != NULL);
-	//æŠŠsrcæŒ‡å‘çš„å­—ç¬¦ä¸²æ‹·è´åˆ°destæŒ‡å‘çš„ç©ºé—´ï¼ŒåŒ…å«'\0'
-	while (*dest++ = *src++)//ä¼˜åŒ–
-	{
-		;
-	}
-	return ret;
+	int a = 1;
+	//·µ»Ø1£¬Ğ¡¶Ë
+	//·µ»Ø0£¬´ó¶Ë
+	return *(char*)&a;
+	//aµÄµØÖ·Ç¿ÖÆ×ª»»Îªchar*
+	//¶Ôchar*µÄµØÖ·½âÒıÓÃ
 }
 int main()
 {
-	char arr1[] = "############";
-	char arr2[] = "hello";
-	printf("%s\n", my_strcpy(arr1, arr2));
+	if (1 == check_syt())
+	{
+		printf("Small end\n");
+	}
+	else
+	{
+		printf("Big end\n");
+	}
 	return 0;
 }
