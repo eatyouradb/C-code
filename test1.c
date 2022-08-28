@@ -1,21 +1,18 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
+int my_strlen(char* str)
+{
+	char* start = str;
+	char* end = str;
+	while ('\0' != *end)
+	{
+		end++;
+	}
+	return end - start;
+}
 int main()
 {
-	int n = 9;
-	float* pfloat = (float*)&n;
-	printf("%d\n", n);
-	printf("%lf\n", *pfloat);
-	//9的二进制00000000000000000000000000001001——补码
-	//按浮点型打印0 00000000 00000000000000000001001
-	//S=0,M=0.00000000000000000001001,E=2^-126
-	//=-1^0*2^-126*0.00000000000000000001001
-
-	*pfloat = 9.0;
-	//1001.0=1.001*2^2*-1^0 S=0,M=1.001,E=2,E的真实值=129
-	//浮点型0 10000001 00100000000000000000000
-	//按十进制打印01000000100100000000000000000000
-	printf("%d\n", n);
-	printf("%lf\n", *pfloat);
+	char arr[] = "bit";
+	printf("%d", my_strlen(arr));
 	return 0;
 }
