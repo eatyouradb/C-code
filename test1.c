@@ -1,18 +1,20 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int my_strlen(char* str)
-{
-	char* start = str;
-	char* end = str;
-	while ('\0' != *end)
-	{
-		end++;
-	}
-	return end - start;
-}
 int main()
 {
-	char arr[] = "bit";
-	printf("%d", my_strlen(arr));
+	int arr1[] = { 1,2,3,4,5 };
+	int arr2[] = { 2,3,4,5,6 };
+	int arr3[] = { 3,4,5,6,7 };
+	int* arr[] = { arr1,arr2,arr3 };
+	int i = 0;
+	for (i = 0; i < 3; i++)
+	{
+		int j = 0;
+		for (j = 0; j < 5; j++)
+		{
+			printf("%d ", *(arr[i] + j));
+		}
+		printf("\n");
+	}
 	return 0;
 }
