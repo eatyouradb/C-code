@@ -1,20 +1,29 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
+int Add(int x, int y)
+{
+	return x + y;
+}
+int Sub(int x, int y)
+{
+	return x - y;
+}
+int Mul(int x, int y)
+{
+	return x * y;
+}
+int Div(int x, int y)
+{
+	return x / y;
+}
 int main()
 {
-	int arr1[] = { 1,2,3,4,5 };
-	int arr2[] = { 2,3,4,5,6 };
-	int arr3[] = { 3,4,5,6,7 };
-	int* arr[] = { arr1,arr2,arr3 };
+	int (*p[4])(int, int) = { Add,Sub,Mul,Div };
 	int i = 0;
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 4; i++)
 	{
-		int j = 0;
-		for (j = 0; j < 5; j++)
-		{
-			printf("%d ", *(arr[i] + j));
-		}
-		printf("\n");
+		printf("%d\n", p[i](2, 3));
+		//p[i]就是访问数组里的每个元素（每个函数的地址），不需加*
 	}
 	return 0;
 }
