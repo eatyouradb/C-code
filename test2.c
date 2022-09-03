@@ -1,28 +1,73 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-void print1(int(*p)[5], int x, int y)
+int add1(int x, int y)
+{
+	return x + y;
+}
+int sub1(int x, int y)
+{
+	return x - y;
+}
+int mul1(int x, int y)
+{
+	return x * y;
+}
+
+int div1(int x, int y)
+{
+	return x / y;
+}
+void menu()
+{
+	printf("********************\n");
+	printf("****** 1.add  ******\n");
+	printf("****** 2.sub  ******\n");
+	printf("****** 3.mul  ******\n");
+	printf("****** 4.div  ******\n");
+	printf("****** 0.exit ******\n");
+	printf("********************\n");
+}
+void cal(int (*p)(int, int))
+{
+	int n = 0;
+	int m = 0;
+	printf("please input 2 numbers:>");
+	scanf("%d%d", &n, &m);
+	printf("%d\n", p(n, m));
+}
+void test()
 {
 	int i = 0;
-	for (i = 0; i < x; i++)
+	do
 	{
-		int j = 0;
-		for (j = 0; j < y; j++)
+		menu();
+		printf("please choose:>");
+		scanf("%d", &i);
+		switch (i)
 		{
-			printf("%d ", *(*(p + i) + j));
-			//*(p + i)=p[i]
-			// *(*(p + i) + j)=*((p[i])+j)=p[i][j]
-			//p为数组指针指向的那一行数组
-			//p+i为第一行，第二行..
-			//*(p+i)为指针指向的那一行的数组名（首元素地址）
-			//*(p+i)+j为指针按行从首元素向后移动之后所指向的那个元素的地址
-			//*(*(p + i) + j)为该地址上的元素
+		case 1:
+			cal(add1);
+			break;
+		case 2:
+			cal(sub1);
+			break;
+		case 3:
+			cal(mul1);
+			break;
+		case 4:
+			cal(div1);
+			break;
+		case 0:
+			printf("exit\n");
+			break;
+		default:
+			printf("Intput error\n");
+			break;
 		}
-		printf("\n");
-	}
+	} while (i);
 }
 int main()
 {
-	int arr[3][5] = { {1,2,3,4,5},{2,3,4,5,6},{3,4,5,6,7} };
-	print1(arr, 3, 5);
+	test();
 	return 0;
 }
