@@ -1,29 +1,92 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int Add(int x, int y)
+int add(int x, int y)
 {
 	return x + y;
 }
-int Sub(int x, int y)
+int sub(int x, int y)
 {
 	return x - y;
 }
-int Mul(int x, int y)
+int mul(int x, int y)
 {
 	return x * y;
 }
-int Div(int x, int y)
+
+int div(int x, int y)
 {
 	return x / y;
 }
+void menu()
+{
+	printf("********************\n");
+	printf("****** 1.add  ******\n");
+	printf("****** 2.sub  ******\n");
+	printf("****** 3.mul  ******\n");
+	printf("****** 4.div  ******\n");
+	printf("****** 0.exit ******\n");
+	printf("********************\n");
+}
+void test()
+{
+	int i = 0;
+	int x = 0;
+	int y = 0;
+	int (*p[])(int, int) = { 0,add,sub,mul,div };
+	do
+	{
+		menu();
+		printf("please choose:>");
+		scanf("%d", &i);
+		if (i >= 1 && i <= 4)
+		{
+			printf("please input 2 numbers:>");
+			scanf("%d%d", &x, &y);
+			int ret = p[i](x, y);
+			printf("%d\n", ret);
+		}
+		else if (0 == i)
+		{
+			printf("exit\n");
+		}
+		else
+		{
+			printf("Intput error\n");
+		}
+		/*switch (i)
+		{
+		case 1:
+			printf("please input 2 numbers:>");
+			scanf("%d%d", &x, &y);
+			printf("%d\n",add(x, y));
+			break;
+		case 2:
+			printf("please input 2 numbers:>");
+			scanf("%d%d", &x, &y);
+			printf("%d\n", sub(x, y));
+			break;
+		case 3:
+			printf("please input 2 numbers:>");
+			scanf("%d%d", &x, &y);
+			printf("%d\n", mul(x, y));
+			break;
+		case 4:
+			printf("please input 2 numbers:>");
+			scanf("%d%d", &x, &y);
+			printf("%d\n", div(x, y));
+			break;
+		case 0:
+			printf("exit\n");
+			break;
+		default:
+			printf("Intput error\n");
+			break;
+		}
+	} while (i);*/
+	} while (i);
+}
 int main()
 {
-	int (*p[4])(int, int) = { Add,Sub,Mul,Div };
-	int i = 0;
-	for (i = 0; i < 4; i++)
-	{
-		printf("%d\n", p[i](2, 3));
-		//p[i]就是访问数组里的每个元素（每个函数的地址），不需加*
-	}
+	test();
 	return 0;
 }
