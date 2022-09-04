@@ -1,89 +1,41 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int add(int x, int y)
+#include <stdlib.h>
+//void bubble_sort(int arr[], int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < sz - 1 - i; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+int cmp(const void* e1, const void* e2)
 {
-	return x + y;
-}
-int sub(int x, int y)
-{
-	return x - y;
-}
-int mul(int x, int y)
-{
-	return x * y;
-}
-
-int div(int x, int y)
-{
-	return x / y;
-}
-void menu()
-{
-	printf("********************\n");
-	printf("****** 1.add  ******\n");
-	printf("****** 2.sub  ******\n");
-	printf("****** 3.mul  ******\n");
-	printf("****** 4.div  ******\n");
-	printf("****** 0.exit ******\n");
-	printf("********************\n");
+	return *(int*)e1 - *(int*)e2;
+	//将e1,e2强制转换成int *类型
+	//小于返回负数，等于返回0，大于返回正数
 }
 void test()
 {
+	int arr[5] = { 5,4,3,2,1 };
 	int i = 0;
-	int x = 0;
-	int y = 0;
-	int (*p[])(int, int) = { 0,add,sub,mul,div };
-	do
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	qsort(arr, sz, sizeof(arr[0]), cmp);
+	/*bubble_sort (arr, sz);*/
+	for (i = 0; i < sz; i++)
 	{
-		menu();
-		printf("please choose:>");
-		scanf("%d", &i);
-		if (i >= 1 && i <= 4)
-		{
-			printf("please input 2 numbers:>");
-			scanf("%d%d", &x, &y);
-			int ret = p[i](x, y);
-			printf("%d\n", ret);
-		}
-		else if (0 == i)
-		{
-			printf("exit\n");
-		}
-		else
-		{
-			printf("Intput error\n");
-		}
-		/*switch (i)
-		{
-		case 1:
-			printf("please input 2 numbers:>");
-			scanf("%d%d", &x, &y);
-			printf("%d\n",add(x, y));
-			break;
-		case 2:
-			printf("please input 2 numbers:>");
-			scanf("%d%d", &x, &y);
-			printf("%d\n", sub(x, y));
-			break;
-		case 3:
-			printf("please input 2 numbers:>");
-			scanf("%d%d", &x, &y);
-			printf("%d\n", mul(x, y));
-			break;
-		case 4:
-			printf("please input 2 numbers:>");
-			scanf("%d%d", &x, &y);
-			printf("%d\n", div(x, y));
-			break;
-		case 0:
-			printf("exit\n");
-			break;
-		default:
-			printf("Intput error\n");
-			break;
-		}
-	} while (i);*/
-	} while (i);
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
 }
 int main()
 {
