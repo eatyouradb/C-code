@@ -1,70 +1,48 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-int add1(int x, int y)
-{
-	return x + y;
-}
-int sub1(int x, int y)
-{
-	return x - y;
-}
-int mul1(int x, int y)
-{
-	return x * y;
-}
+#include <string.h>
 
-int div1(int x, int y)
+int cmp(const void* e1, const void* e2)
 {
-	return x / y;
+	return *(int*)e1 - *(int*)e2;
 }
-void menu()
+void swap(char* buf1, char* buf2,int width)
 {
-	printf("********************\n");
-	printf("****** 1.add  ******\n");
-	printf("****** 2.sub  ******\n");
-	printf("****** 3.mul  ******\n");
-	printf("****** 4.div  ******\n");
-	printf("****** 0.exit ******\n");
-	printf("********************\n");
+	int i = 0;
+	for (i = 0; i < width; i++)
+	{
+		char tmp = *buf1;
+		*buf1 = *buf2;
+		*buf2 = tmp;
+		buf1++;
+		buf2++;
+	}
 }
-void cal(int (*p)(int, int))
+int bubble_sort(void* base, int sz, int width, int (*cmp)(const void* e1, const void* e2))
 {
-	int n = 0;
-	int m = 0;
-	printf("please input 2 numbers:>");
-	scanf("%d%d", &n, &m);
-	printf("%d\n", p(n, m));
+	int i = 0;
+	for (i = 0; i < sz - 1; i++)
+	{
+		int j = 0;
+		for (j = 0; j < sz - 1 - i; j++)
+		{
+			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width) > 0)
+			{
+				swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
+			}
+		}
+	}
 }
 void test()
 {
+	int arr[5] = { 5,4,3,2,1 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
 	int i = 0;
-	do
+	bubble_sort(arr, sz, sizeof(arr[0]), cmp);
+	for (i = 0; i < sz ; i++)
 	{
-		menu();
-		printf("please choose:>");
-		scanf("%d", &i);
-		switch (i)
-		{
-		case 1:
-			cal(add1);
-			break;
-		case 2:
-			cal(sub1);
-			break;
-		case 3:
-			cal(mul1);
-			break;
-		case 4:
-			cal(div1);
-			break;
-		case 0:
-			printf("exit\n");
-			break;
-		default:
-			printf("Intput error\n");
-			break;
-		}
-	} while (i);
+		printf("%d", arr[i]);
+	}
 }
 int main()
 {
