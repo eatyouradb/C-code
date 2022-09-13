@@ -1,26 +1,26 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-#include <assert.h>
-
-char* my_strcat(char* arr1, const char* arr2)
-{
-	char* ret = arr1;
-	assert(arr1 && arr2);
-	while (*arr1 != 0)
-	{
-		arr1++;
-	}
-	while (*arr1++ = *arr2++)
-	{
-		;
-	}
-	return ret;
-}
+#include <string.h>
 int main()
 {
-	char arr1[30] = "abcd";
-	char arr2[] = "1234";
-	my_strcat(arr1, arr2);
-	printf("%s\n", arr1);
+	char arr[] = "193@66#6.888";
+	char* p = "@#.";
+	char buf[1024] = { 0 };
+	strcpy(buf, arr);//±¸·Ý
+
+	char* ret = NULL;
+	for (ret = strtok(arr, p); ret != NULL; ret = strtok(NULL, p))
+	{
+		printf("%s\n", ret);
+	}
+
+	/*char *ret = strtok(arr, p);
+	printf("%s\n", ret);
+	ret = strtok(NULL, p);
+	printf("%s\n", ret);
+	ret = strtok(NULL, p);
+	printf("%s\n", ret);
+	ret = strtok(NULL, p);
+	printf("%s\n", ret);*/
 	return 0;
 }
