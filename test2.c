@@ -1,18 +1,37 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
+void* my_memmove(void* dest,const void* src, size_t count)
+{
+	void* ret = dest;
+	if (src > dest)
+	{
+		//
+		while (count--)
+		{
+			*(char*)dest = *(char*)src;
+			++(char*)dest;
+			++(char*)src;
+		}
+	}
+	else
+	{
+		while (count--)
+		{
+			*((char*)dest + count) = *((char*)src + count);
+		}
+		return ret;
+	}
+}
 int main()
 {
-	char arr[] = "BIGMan";
+	char arr1[] = { 1,2,3,4,5,6,7 };
 	int i = 0;
-	while (arr[i])
+	//memmove(arr1, arr1 + 2, 4);
+	my_memmove(arr1, arr1 + 2, 3);
+	for (i = 0; i < 7; i++)
 	{
-		if (toupper(arr[i]))
-		{
-			arr[i] = tolower(arr[i]);
-		}
-		i++;
+		printf("%d\n", arr1[i]);
 	}
-	printf("%s\n", arr);
 	return 0;
 }
