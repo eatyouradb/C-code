@@ -1,40 +1,26 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-#include <string.h>
-#include <assert.h>
-void* my_memmove(void* dest,const void* src, size_t count)
+int check_sys(int a)
 {
-	void* ret = dest;
-	assert(dest != NULL);
-	assert(src != NULL);
-	if (src > dest)
+	union Un
 	{
-		//
-		while (count--)
-		{
-			*(char*)dest = *(char*)src;
-			++(char*)dest;
-			++(char*)src;
-		}
-	}
-	else
-	{
-		while (count--)
-		{
-			*((char*)dest + count) = *((char*)src + count);
-		}
-		return ret;
-	}
+		char b;
+		int i;
+	}u;
+	u.i = 1;
+	return u.b;
 }
 int main()
 {
-	char arr1[] = { 1,2,3,4,5,6,7 };
-	int i = 0;
-	//memmove(arr1, arr1 + 2, 4);
-	my_memmove(arr1, arr1 + 2, 3);
-	for (i = 0; i < 7; i++)
+	int a = 1;
+	int ret = check_sys(a);
+	if (1 == ret)
 	{
-		printf("%d\n", arr1[i]);
+		printf("big\n");
+	}
+	else
+	{
+		printf("small\n");
 	}
 	return 0;
 }
