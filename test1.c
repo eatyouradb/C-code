@@ -16,7 +16,7 @@ void print1(struct s y)//传值
 {
 	printf("%c %d %lf\n", y.a, y.b, y.c);
 }
-void print2(struct s* z)//传址
+void print2(const struct s* z)//传址
 {
 	printf("%c %d %lf\n", z->a, z->b, z->c);
 }
