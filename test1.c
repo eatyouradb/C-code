@@ -12,14 +12,19 @@ void Init(struct s* x)
 	x->b = 100;
 	x->c = 3.14;
 }
-void print(struct s y)
+void print1(struct s y)//传值
 {
 	printf("%c %d %lf\n", y.a, y.b, y.c);
+}
+void print2(struct s* z)//传址
+{
+	printf("%c %d %lf\n", z->a, z->b, z->c);
 }
 int main()
 {
 	struct s x = { 0 };
 	Init(&x);
-	print(x);
+	print1(x);
+	print2(&x);
 	return 0;
 }
