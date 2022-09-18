@@ -19,6 +19,7 @@ int main()
 			printf("%d ", *(p + i));
 		}
 	}
-	
+	free(p);
+	p = NULL;
 	return 0;
 }
