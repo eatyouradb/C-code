@@ -1,38 +1,42 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-void Gem(char* p)
+struct S
 {
-	p = (char*)malloc(100);
-}
-////法一：
-////void Gem(char* *p)//对char*类型解引用
-////{
-////	*p = (char*)malloc(100);//*p等价于str
-////}
-//法二：
-//char* Gem(char* p)
-//{
-//	p = (char*)malloc(100);
-//	return p;
-//}
-void test(void)
-{
-	char* str = NULL;////把NULL的地址放入str
-	Gem(str);
-	////Gem(&str);
-	//str=Gem(str);
-	strcpy(str, "hello world");
-	printf(str);
-	//free(str);
-	//str=NULL;
-}
+	int n;
+	int* arr;
+};
 int main()
 {
-	test();
+	struct S* p = (struct S*)malloc(sizeof(struct S));
+	p->arr = malloc(5 * sizeof(int));//p指向的结构体里arr指针指向的空间可调整
+	int i = 0;
+	for (i = 0; i < 5; i++)
+	{
+		p->arr[i] = i;
+	}
+	for (i = 0; i < 5; i++)
+	{
+		printf("%d ", p->arr[i]);
+	}
+	printf("\n");
+	//调整大小
+	int* p1 = realloc(p->arr, 10 * sizeof(int));//arr为int*
+	if (NULL != p1)
+	{
+		p->arr = p1;//备份
+	}
+	for (i = 5; i < 10; i++)
+	{
+		p->arr[i] = i;
+	}
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", p->arr[i]);
+	}
+	free(p->arr);
+	p->arr = NULL;
+	free(p);
+	p = NULL;
 	return 0;
 }
-//未释放,存在程序内存泄漏
-//str指向NULL，str以值传递的形式传给p，p为Gem的形参，p只在Gem函数内有效
-//返回时动态内存尚未释放，且无法找到
