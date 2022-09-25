@@ -1,22 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-struct S
-{
-	int n;
-	float m;
-	char a[10];
-};
 int main()
 {
-	struct S s = { 10,3.14f,"bit" };
-	FILE* p = fopen("text.txt", "w");
-	if (NULL == p)
+	int arr[10] = { 1,2,3,4 };
+	int n = 5;
+	int i = 3;
+	arr[i + 1] = arr[i];
+	arr[i] = arr[i - 1];
+	arr[i - 1] = n;
+	int m = 0;
+	for (m = 0; m < 10; m++)
 	{
-		return 0;
+		printf("%d ", arr[m]);
 	}
-	fprintf(p, "%d %f %s", s.n, s.m, s.a);
-
-	fclose(p);
-	p = NULL;
 	return 0;
 }
