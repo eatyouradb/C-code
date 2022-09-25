@@ -1,42 +1,14 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-#include <stdlib.h>
-struct S
-{
-	int n;
-	int* arr;
-};
+#define max(x,y) ((x)>(y)?(x):(y))
 int main()
 {
-	struct S* p = (struct S*)malloc(sizeof(struct S));
-	p->arr = malloc(5 * sizeof(int));//p指向的结构体里arr指针指向的空间可调整
-	int i = 0;
-	for (i = 0; i < 5; i++)
-	{
-		p->arr[i] = i;
-	}
-	for (i = 0; i < 5; i++)
-	{
-		printf("%d ", p->arr[i]);
-	}
-	printf("\n");
-	//调整大小
-	int* p1 = realloc(p->arr, 10 * sizeof(int));//arr为int*
-	if (NULL != p1)
-	{
-		p->arr = p1;//备份
-	}
-	for (i = 5; i < 10; i++)
-	{
-		p->arr[i] = i;
-	}
-	for (i = 0; i < 10; i++)
-	{
-		printf("%d ", p->arr[i]);
-	}
-	free(p->arr);
-	p->arr = NULL;
-	free(p);
-	p = NULL;
-	return 0;
+	int a = 10;
+	int b = 11;
+	printf("%d\n", max(a++, b++));
+	//((a++)>(b++)?(a++):(b++))
+	//执行a>b,不大于,返回b++（12）
+	//然后a++(11),b++(13)
+	printf("%d\n", a);
+	printf("%d\n", b);
 }
